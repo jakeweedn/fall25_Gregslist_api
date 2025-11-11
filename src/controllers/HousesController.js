@@ -46,6 +46,8 @@ export class HousesController extends BaseController {
 
         try {
             const houses = await housesService.getAllHouses()
+
+            console.log('Getting all houses')
             response.send(houses)
 
 
