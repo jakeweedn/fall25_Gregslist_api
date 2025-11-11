@@ -9,6 +9,21 @@ class HousesService {
         return houses
     }
 
+    async getHouseById(houseId) {
+
+        const houseToGet = await dbContext.Houses.findById(houseId)
+        if (!houseToGet) {
+
+            throw new Error("There is no house there. Bad id")
+        }
+
+        return houseToGet
+
+
+
+
+    }
+
 
 }
 
