@@ -6,7 +6,12 @@ class HousesService {
 
     async searchHouses(searchQuery) {
 
-        const houses = await dbContext.Houses.find(searchQuery)
+        const sortBy = searchQuery.sort
+        delete searchQuery.sort
+
+
+
+        const houses = await dbContext.Houses.find(searchQuery).sort(sortBy)
 
         return houses
 
@@ -15,6 +20,9 @@ class HousesService {
     }
 
     // Yes, I can manually enter the specifics in the find like the lab does, but much easier to just put SearchQuery in the find, and then I can filter however I want in postman.
+
+
+    // Example Endpoint: http://localhost:3000/api/houses/search?levels=3&sort=price
 
 
 
